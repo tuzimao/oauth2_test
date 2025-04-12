@@ -1,0 +1,18 @@
+[2025-04-12 00:50:44] Called with code: a04d12b7e0e419d3ecefa00f275ce92ad1d2b66a
+[2025-04-12 01:08:51] Called with code: abc123
+[2025-04-12 01:13:31] Called with code: abc123
+[2025-04-12 01:15:24] Called with code: 88720c229e0a466ad375e9a1b7e9aaaa4772421a
+[2025-04-12 01:18:36] Called with code: 2234ef04f8ab6bf65cebaeeef3683b19b4773d74
+[2025-04-12 01:19:28] Called with code: cc803c2769e10cb86ba2bd093d0f0d8d9e63333d
+[2025-04-12 01:24:02] Called with code: 75f73e644a9e6349666ef2476edeaf27511597f8
+[2025-04-12 01:31:20] Called with code: 75f73e644a9e6349666ef2476edeaf27511597f8
+[2025-04-12 01:32:46] Called with code: 18bd31f163f772b56d2a926ac189ffa99cdca75d
+[2025-04-12 01:34:22] Called with code: d7c4d88998ef862ebaf77f45e72a736a422addcd
+[2025-04-12 01:36:42] Called with code: fd711a5f69ae9d7ba2b0ba85812415339d92e1cd
+[2025-04-12 01:41:23] Called with code: f690759a7628bf7d7bf0b9dfa2a348198d2a0fa4
+[2025-04-12 01:41:23] Sending POST to token.php with data: grant_type=authorization_code&code=f690759a7628bf7d7bf0b9dfa2a348198d2a0fa4&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fclient%2Fcallback.php&client_id=testclient&client_secret=testsecret
+[2025-04-12 01:41:54] Called with code: 9b7e49cb996be10bfb228f0444edb77ab3fc52fa
+[2025-04-12 01:41:54] Sending POST to token.php with data: grant_type=authorization_code&code=9b7e49cb996be10bfb228f0444edb77ab3fc52fa&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fclient%2Fcallback.php&client_id=testclient&client_secret=testsecret
+[2025-04-12 01:52:51] Called with code: 9b7e49cb996be10bfb228f0444edb77ab3fc52fa
+[2025-04-12 01:57:40] Called with code: db3db89d2e87b9d4232aa976abdd38517c7b19b6
+[2025-04-12 02:02:28] Called with code: eac2408712f9059715008446b03acd9d88078440
