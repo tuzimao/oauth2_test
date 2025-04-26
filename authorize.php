@@ -2,8 +2,6 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-file_put_contents('debug.log', "[" . date('Y-m-d H:i:s') . "] Entered authorize.php\n", FILE_APPEND);
-
 require 'server.php';
 
 session_start();
@@ -19,10 +17,19 @@ if (!$server->validateAuthorizeRequest($request, $response)) {
     exit;
 }
 
-file_put_contents('debug.log', "[" . date('Y-m-d H:i:s') . "] Authorization valid, issuing code...\n", FILE_APPEND);
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    ?>
+    <form method="post">
+        <h2>授权请求</h2>
+        <p>应用 <strong><?= htmlspecialchars($_GET['client_id']) ?></strong> 请求访问你的账户。</p>
+        <button name="authorized" value="yes" type="submit">同意</button>
+        <button name="authorized" value="no" type="submit">拒绝</button>
+    </form>
+    <?php
+    exit;
+}
 
 $isAuthorized = true;
-
 $server->handleAuthorizeRequest($request, $response, $isAuthorized, $_SESSION['user_id']);
 $response->send();
 
