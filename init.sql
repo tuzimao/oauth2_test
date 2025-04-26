@@ -60,3 +60,13 @@ CREATE TABLE IF NOT EXISTS users (
   username TEXT UNIQUE,
   password TEXT -- 保存加密后的密码
 );
+
+CREATE TABLE IF NOT EXISTS oauth_clients (
+  client_id TEXT PRIMARY KEY,
+  client_secret TEXT NOT NULL,
+  redirect_uri TEXT NOT NULL,
+  grant_types TEXT DEFAULT 'authorization_code',
+  scope TEXT DEFAULT NULL,
+  user_id TEXT DEFAULT NULL
+);
+
