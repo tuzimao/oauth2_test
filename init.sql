@@ -54,3 +54,9 @@ CREATE TABLE oauth_jwt (
   subject TEXT,
   public_key TEXT
 );
+
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE,
+  password TEXT -- 保存加密后的密码
+);
