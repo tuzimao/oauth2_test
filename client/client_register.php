@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 连接数据库
-    $db = new PDO('sqlite:' . __DIR__ . '/oauth.sqlite');
+    $db = new PDO('sqlite:' . __DIR__ . '/../oauth.sqlite');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // 接收表单数据
