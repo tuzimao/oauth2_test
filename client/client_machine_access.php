@@ -21,7 +21,7 @@ $context = stream_context_create([
     ]
 ]);
 
-$url = 'http://localhost:8000/token.php';
+$url = 'http://localhost/oauth2_test/token.php';
 
 $response = file_get_contents($url, false, $context);
 

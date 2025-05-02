@@ -4,31 +4,48 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 连接数据库
-    $db = new PDO('sqlite:' . __DIR__ . '/../oauth.sqlite');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // 接收表单数据
+    // 模拟客户端发出 HTTP POST 请求给 OAuth2 Server 的注册接口
     $appName = trim($_POST['app_name'] ?? '');
     $redirectUri = trim($_POST['redirect_uri'] ?? '');
 
     if (empty($appName) || empty($redirectUri)) {
         $error = "应用名称和回调地址不能为空！";
     } else {
-        // 生成 client_id 和 client_secret
-        $clientId = bin2hex(random_bytes(16));
-        $clientSecret = bin2hex(random_bytes(32));
+        // 模拟 HTTP 请求：注册到 Server 的 client 注册 API
+        $clientRegisterUrl = 'http://localhost/oauth2_test/client_api_register.php';
 
-        // 插入数据库 oauth_clients 表
-        $stmt = $db->prepare('INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES (:client_id, :client_secret, :redirect_uri)');
-        $stmt->execute([
-            ':client_id' => $clientId,
-            ':client_secret' => $clientSecret,
-            ':redirect_uri' => $redirectUri
+        $postData = http_build_query([
+            'app_name' => $appName,
+            'redirect_uri' => $redirectUri
         ]);
 
-        // 注册成功
-        $success = true;
+        $options = [
+            'http' => [
+                'method' => 'POST',
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+                'content' => $postData,
+                'ignore_errors' => true
+            ]
+        ];
+
+        $context = stream_context_create($options);
+        $response = file_get_contents($clientRegisterUrl, false, $context);
+        if ($response === false) {
+            echo "<p style='color:red'>file_get_contents 失败了</p>";
+        }
+
+        if ($response !== false) {
+            $data = json_decode($response, true);
+            if (isset($data['client_id'], $data['client_secret'])) {
+                $clientId = $data['client_id'];
+                $clientSecret = $data['client_secret'];
+                $success = true;
+            } else {
+                $error = "注册失败：" . ($data['error'] ?? '未知错误');
+            }
+        } else {
+            $error = "无法连接到授权服务器，请稍后重试。";
+        }
     }
 }
 ?>

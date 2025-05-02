@@ -52,3 +52,12 @@
 [2025-04-26 18:44:37] Authorization complete and response sent
 [2025-04-26 18:48:17] Authorization complete and response sent
 [2025-04-29 00:18:35] Authorization complete and response sent
+[2025-05-02 21:21:35] client_api_register.php 被访问
+[2025-05-02 21:31:12] client_api_register.php 被访问
+[2025-05-02 21:31:12] DB 文件路径：
+[2025-05-02 21:37:29] client_api_register.php 被访问
+[2025-05-02 21:37:29] DB 路径: E:\oauth2_test/oauth.sqlite
+[2025-05-02 21:43:25] client_api_register.php 被访问
+[2025-05-02 21:43:25] DB 路径: E:\oauth2_test/oauth.sqlite
+[2025-05-02 22:03:21] client_api_register.php 被访问
+[2025-05-02 22:03:21] DB 路径: C:\xampp\htdocs\oauth2_test/oauth.sqlite

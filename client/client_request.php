@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 $clientId = 'e5a215f06dfdb686542b029aa61fb439'; // 替换为你注册的 client_id
 $clientSecret = '379ac8b8f40d1d3e100cb47a7bcbac4de11042502aa5a83f9ed60e7fa598310a'; // 替换为对应的 client_secret
 
-$tokenUrl = 'http://localhost:8000/token.php';
+$tokenUrl = 'http://localhost/oauth2_test/token.php';
 
 $postData = http_build_query([
     'grant_type' => 'client_credentials',
@@ -58,7 +58,7 @@ if (!isset($tokenData['access_token'])) {
 $accessToken = $tokenData['access_token'];
 
 // 使用 access_token 请求受保护资源
-$resourceUrl = 'http://localhost:8000/resource.php';
+$resourceUrl = 'http://localhost/oauth2_test/resource.php';
 
 $resourceContext = stream_context_create([
     'http' => [

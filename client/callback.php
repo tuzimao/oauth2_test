@@ -15,7 +15,7 @@ $_SERVER['REQUEST_METHOD'] = 'POST';
 $_POST = [
   'grant_type' => 'authorization_code',
   'code' => $_GET['code'],
-  'redirect_uri' => 'http://localhost:8000/client/callback.php',
+  'redirect_uri' => 'http://localhost/oauth2_test/client/callback.php',
   'client_id' => 'testclient',
   'client_secret' => 'testsecret'
 ];
