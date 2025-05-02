@@ -61,3 +61,4 @@
 [2025-05-02 21:43:25] DB 路径: E:\oauth2_test/oauth.sqlite
 [2025-05-02 22:03:21] client_api_register.php 被访问
 [2025-05-02 22:03:21] DB 路径: C:\xampp\htdocs\oauth2_test/oauth.sqlite
+[2025-05-02 22:21:24] Invalid authorize request
